@@ -5,17 +5,18 @@
 
 
 <div class="row">
-    <form class="col s12" method="POST">
+    <form class="col s12" method="POST" action="/usuarios/store">
+      <input type="hidden" name="_token" value="{{ csrf_token() }}">
       <div class="row">
         <div class="input-field col s12">
-          <input placeholder="Qual é o seu nome?" type="text" required>
-          <label>Nome Completo</label>
+          <input placeholder="Qual é o seu nome?" name="nome" type="text" required>
+          <label>Nome</label>
         </div>
       </div>
 
       <div class="row">
         <div class="input-field col s12">
-          <input type="email" required>
+          <input type="email" required name="email">
           <label>Email</label>
         </div>
 
@@ -35,11 +36,11 @@
 
     <div class="row">
         <div class="input-field col s12">
-            <input type="submit" value="salvar"> 
+            <input type="submit" value="salvar">
         </div>
     </div>
-      
-     
+
+
     </form>
   </div>
 
