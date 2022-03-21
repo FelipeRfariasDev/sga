@@ -5,12 +5,14 @@ namespace App\Http\Controllers;
 use App\Models\Usuarios;
 use Illuminate\Http\Request;
 
-class UsuarioController extends Controller
+class UsuariosController extends Controller
 {
 
     public function index()
     {
+        //select * from usuarios
         $usuarios = Usuarios::all();
+
         return view('usuario.index', ['usuarios'=>$usuarios]);
     }
 
@@ -32,23 +34,26 @@ class UsuarioController extends Controller
         $usuario->email = $email;
         $usuario->perfil_id = $perfil_id;
         $usuario->save();
-        return redirect('/');
+
+        //insert into usuarios (nome, email, perfil_id) values ('$nome','$email','$perfil_id')
+        //execute()
+        return redirect('/usuarios/listar');
     }
 
 
-    public function show($id)
+    public function show(Usuarios $usuarios)
     {
         //
     }
 
 
-    public function edit($id)
+    public function edit(Usuarios $usuarios)
     {
         //
     }
 
 
-    public function update(Request $request, $id)
+    public function update(Request $request, Usuarios $usuarios)
     {
         //
     }
@@ -56,6 +61,9 @@ class UsuarioController extends Controller
 
     public function destroy($id)
     {
-        //
+        //select * from usuarios where id=$id
+        //delete from usuarios where id=$id
+        $usuario = Usuarios::find($id)->delete();
+        return redirect('/usuarios/listar');
     }
 }
