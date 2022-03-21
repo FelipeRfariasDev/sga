@@ -40,25 +40,6 @@ class UsuariosController extends Controller
         return redirect('/usuarios/listar');
     }
 
-
-    public function show(Usuarios $usuarios)
-    {
-        //
-    }
-
-
-    public function edit(Usuarios $usuarios)
-    {
-        //
-    }
-
-
-    public function update(Request $request, Usuarios $usuarios)
-    {
-        //
-    }
-
-
     public function destroy($id)
     {
         //select * from usuarios where id=$id
